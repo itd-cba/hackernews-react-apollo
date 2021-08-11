@@ -18,9 +18,9 @@ const LinkList = () => {
 
     return (
         <div>
-            {linksToRender.map((link) => {
+            {linksToRender.map((link) => (
                 <Link key={link.id} link={link}/>
-            })}
+            ))}
         </div>
     );
 };
