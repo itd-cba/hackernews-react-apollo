@@ -12,13 +12,14 @@ import {
     createHttpLink,
     InMemoryCache
 } from '@apollo/client';
+import {BrowserRouter} from "react-router-dom";
 
 // 2
 const httpLink = createHttpLink({
     uri: 'http://localhost:4000'
 });
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext((_, {headers}) => {
     return {
         headers: {
             ...headers,
@@ -34,8 +35,10 @@ const client = new ApolloClient({
 
 // 4
 ReactDOM.render(
-    <ApolloProvider client={client}>
-        <App/>
-    </ApolloProvider>,
+    <BrowserRouter>
+        <ApolloProvider client={client}>
+            <App/>
+        </ApolloProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 );
