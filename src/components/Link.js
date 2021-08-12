@@ -1,5 +1,5 @@
 import React from "react";
-import {AUTH_TOKEN} from "../constants";
+import {AUTH_TOKEN, LINKS_PER_PAGE} from "../constants";
 import {timeDifferenceForDate} from "../utils";
 import {gql, useMutation} from "@apollo/client";
 import { FEED_QUERY } from './LinkList';
@@ -29,7 +29,7 @@ const Link = (props) => {
         const {link} = props;
         const authToken = localStorage.getItem(AUTH_TOKEN);
 
-        //const take = LINKS_PER_PAGE;
+        const take = LINKS_PER_PAGE;
         const skip = 0;
         const orderBy = {createdAt: 'desc'};
 
